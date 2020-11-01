@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+
+  <!-- stylecop -->
+  <ItemGroup>
+    <AdditionalFiles Include="$(ProjectDir)..\..\stylecop.json" Link="stylecop.json" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <StyleCopTreatErrorsAsWarnings>true</StyleCopTreatErrorsAsWarnings>
+    <CodeAnalysisRuleSet>$(ProjectDir)..\..\stylecop.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <!-- /stylecop -->
+</Project>

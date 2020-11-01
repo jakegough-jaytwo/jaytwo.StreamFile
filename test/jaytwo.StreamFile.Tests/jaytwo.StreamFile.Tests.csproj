@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="EmbeddedResources\**\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\jaytwo.StreamFile\jaytwo.StreamFile.csproj" />
+    <ProjectReference Include="..\..\src\jaytwo.StreamFile.AspNetCore\jaytwo.StreamFile.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\src\jaytwo.StreamFile.DisappearingFiles\jaytwo.StreamFile.DisappearingFiles.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="jaytwo.DisappearingFiles" Version="0.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="3.1.9" />
+  </ItemGroup>
+
+  <!-- default test packages -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+    <PackageReference Include="Moq" Version="4.14.7" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" PrivateAssets="All" />
+  </ItemGroup>
+  <!-- /default test packages -->
+  
+  <!-- stylecop -->
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
+    <PackageReference Include="StyleCop.Analyzers.Error" Version="1.0.2" PrivateAssets="All" />
+  </ItemGroup>
+  <!-- /stylecop -->
+
+  <!-- coverlet & cobertura (only necessary on the test project)-->
+  <ItemGroup>
+    <PackageReference Include="coverlet.msbuild" Version="2.9.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <CollectCoverage>true</CollectCoverage>
+    <Exclude>[xunit.*]*</Exclude>
+    <ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute</ExcludeByAttribute>
+    <CoverletOutputFormat>cobertura</CoverletOutputFormat>
+    <CoverletOutput>$(MSBuildThisFileDirectory)../../out/coverage/$(AssemblyName)/$(TargetFramework)/</CoverletOutput>
+  </PropertyGroup>
+  <!-- /coverlet & cobertura -->
+
+</Project>
